@@ -2,9 +2,10 @@
 ** EPITECH PROJECT, 2017
 ** my_put_nbr.c
 ** File description:
-** task07 Day03
+** display a number from integer
 */
-#include "../../include/my.h"
+
+#include "my.h"
 
 void my_put_nbr(int nb)
 {

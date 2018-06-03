@@ -16,6 +16,7 @@ char *my_strdup(char *);
 char *my_strndup(char *, int);
 void my_put_nbr(int);
 void my_putstr(char const *);
+void my_putchar(const int);
 void my_puterr(char const *);
 int my_strlen(char const *);
 int my_getnbr(char const *);
