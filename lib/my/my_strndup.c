@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include "../../include/my.h"
+#include "my.h"
 
 char *my_strndup(char *src, unsigned int n)
 {
@@ -15,7 +15,7 @@ char *my_strndup(char *src, unsigned int n)
 
 	if (!src)
 		return (NULL);
-	str = malloc(sizeof(char) * (my_strlen(src) + 1));
+	str = malloc(sizeof(char) * (n + 1));
 	if (!str)
 		return (NULL);
 	for (; src[i] != 0 && i < n; str[i] = src[i], i++);
