@@ -12,7 +12,7 @@ int my_printf(const char *str, ...)
 {
 	va_list ap;
 	char ret = 0;
-	void (*chooseFlag[16])(char *, va_list) =
+	void (*chooseFlag[16])(const char *, va_list) =
 	{d_i, d_i, d_c, d_s, d_ex_down, d_ex_up,
 	d_o, d_none, d_u, d_adr, d_b};
 
@@ -22,14 +22,14 @@ int my_printf(const char *str, ...)
 			b++;
 			(ret = find_flag(str, b)) == -1 ? my_putchar('%') : 0;
 			ret != -1 ?
-			(*chooseFlag[(int)find_flag(str, b++)])(str, ap) : 0;
+			(*chooseFlag[find_flag(str, b++)])(str, ap) : 0;
 		} else if (str[b] != '%')
 			my_putchar(str[b++]);
 	}
 	va_end(ap);
 }
 
-char find_flag(char *str, int b)
+char find_flag(const char *str, int b)
 {
 	char flags_test[] = "idcsxXoS%upb";
 	unsigned int i = 0;
@@ -40,7 +40,7 @@ char find_flag(char *str, int b)
 	return (i);
 }
 
-void d_b(char *str, va_list ap)
+void d_b(const char *str, va_list ap)
 {
 	unsigned int arg = va_arg(ap, unsigned int);
 	unsigned int rest = arg;

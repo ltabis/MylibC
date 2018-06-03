@@ -11,7 +11,7 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME 	= 	libmy.a
 
-CFLAGs=	-g -W -Wall -Wextra
+CFLAGS=	-I../../include
 
 all:		$(NAME)
 

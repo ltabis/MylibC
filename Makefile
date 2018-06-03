@@ -25,7 +25,7 @@ SRC	=	main.c
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME 	= 	project
+NAME 	= 	project_name
 
 LIBFL	=	-Iinclude -Llib/my -lmy
 

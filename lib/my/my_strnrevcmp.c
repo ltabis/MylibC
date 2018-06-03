@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-int my_strrevcmp(const char *s1, const char *s2, unsigned int n)
+int my_strnrevcmp(const char *s1, const char *s2, unsigned int n)
 {
 	unsigned int count = my_strlen(s1);
 	unsigned int count2 = my_strlen(s2);

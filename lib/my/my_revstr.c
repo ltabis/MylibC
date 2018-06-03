@@ -2,14 +2,14 @@
 ** EPITECH PROJECT, 2017
 ** my_revstr.c
 ** File description:
-** task03 Day06
+** reversing strings character
 */
 
 #include "my.h"
 
 char *my_revstr(char *str)
 {
-	unsigned int i = strlen(str);
+	unsigned int i = my_strlen(str);
 	char save = 0;
 
 	for (unsigned int count = 0; count != i / 2; count++) {

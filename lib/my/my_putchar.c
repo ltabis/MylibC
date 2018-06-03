@@ -5,7 +5,7 @@
 ** not very useful fucntion, display a character
 */
 
-#include <unistd>
+#include <unistd.h>
 
 void my_putchar(const int n)
 {
