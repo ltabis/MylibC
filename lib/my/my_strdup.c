@@ -6,9 +6,9 @@
 */
 
 #include <stdlib.h>
-#include "../../include/my.h"
+#include "my.h"
 
-char *my_strdup(char *src)
+char *my_strdup(char const *src)
 {
 	char *str = NULL;
 	unsigned int i = 0;
@@ -18,7 +18,7 @@ char *my_strdup(char *src)
 	str = malloc(sizeof(char) * (my_strlen(src) + 1));
 	if (!str)
 		return (NULL);
-	for (; src[i]; str[i] = src[i], i++);
+	for (; src[i]; str[i] = src[i++]);
 	str[i] = 0;
 	return (str);
 }
