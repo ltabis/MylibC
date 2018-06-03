@@ -6,7 +6,7 @@
 */
 #include <stdarg.h>
 #include <stdlib.h>
-#include "../../include/my.h"
+#include "my.h"
 
 int my_printf(const char *str, ...)
 {
@@ -22,11 +22,12 @@ int my_printf(const char *str, ...)
 			b++;
 			(ret = find_flag(str, b)) == -1 ? my_putchar('%') : 0;
 			ret != -1 ?
-			(*chooseFlag[find_flag(str, b++)])(str, ap) : 0;
+			(*chooseFlag[(int)find_flag(str, b++)])(str, ap) : 0;
 		} else if (str[b] != '%')
 			my_putchar(str[b++]);
 	}
 	va_end(ap);
+	return (0);
 }
 
 char find_flag(const char *str, int b)
@@ -40,7 +41,7 @@ char find_flag(const char *str, int b)
 	return (i);
 }
 
-void d_b(const char *str, va_list ap)
+void d_b(UNUSED const char *str, va_list ap)
 {
 	unsigned int arg = va_arg(ap, unsigned int);
 	unsigned int rest = arg;

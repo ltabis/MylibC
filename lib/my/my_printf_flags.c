@@ -8,7 +8,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-void d_i(const char *str, va_list ap)
+void d_i(UNUSED const char *str, va_list ap)
 {
 	int nbr = va_arg(ap, int);
 	unsigned int verif = nbr;
@@ -19,19 +19,19 @@ void d_i(const char *str, va_list ap)
 		my_put_nbr(nbr);
 }
 
-void d_c(const char *str, va_list ap)
+void d_c(UNUSED const char *str, va_list ap)
 {
 	char ch = (char)va_arg(ap, int);
 
 	my_putchar(ch);
 }
 
-void d_s(const char *str, va_list ap)
+void d_s(UNUSED const char *str, va_list ap)
 {
 	my_putstr(va_arg(ap, char *));
 }
 
-void d_ex_down(const char *str, va_list ap)
+void d_ex_down(UNUSED const char *str, va_list ap)
 {
 	unsigned int arg = va_arg(ap, unsigned int);
 	unsigned int rest = arg;
@@ -52,7 +52,7 @@ void d_ex_down(const char *str, va_list ap)
 	free(disp);
 }
 
-void d_ex_up(const char *str, va_list ap)
+void d_ex_up(UNUSED const char *str, va_list ap)
 {
 	unsigned int arg = va_arg(ap, unsigned int);
 	unsigned int rest = arg;

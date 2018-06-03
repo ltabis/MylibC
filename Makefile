@@ -51,6 +51,8 @@ clean:
 		@$(RM) -f $(OBJ)
 		@find -type f -name '*~' -delete
 		@find -type f -name '#*#' -delete
+		@find -type f -name '*.gcda' -delete
+		@find -type f -name '*.gcno' -delete
 		@$(RM) -r -f *~ \#*\#
 		cd lib/my && make fclean
 		@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Repository cleaned !" "$(NO_COLOR)"

@@ -8,7 +8,6 @@
 int my_isnum(const char *str)
 {
 	unsigned int i = 0;
-	unsigned int nbr = 0;
 
 	if (!str)
 		return (-1);

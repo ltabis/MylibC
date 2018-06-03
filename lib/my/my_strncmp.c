@@ -5,7 +5,7 @@
 ** compare two strings for n characters
 */
 
-int my_strncmp(char const *s1, char const *s2, int n)
+int my_strncmp(char const *s1, char const *s2, unsigned int n)
 {
 	unsigned int count = 0;
 	unsigned int result = 0;

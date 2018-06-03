@@ -25,7 +25,7 @@ int my_isnum(const char *);
 char *my_revstr(char *);
 int my_strcmp(char const *, char const *);
 char *my_strdup(char const *);
-int my_strncmp(char const *, char const *, int);
+int my_strncmp(char const *, char const *, unsigned int);
 int my_strrevcmp(const char *, const char *);
 int my_strnrevcmp(const char *, const char *, unsigned int);
 char *my_concat(char const *, char const *);
