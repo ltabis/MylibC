@@ -13,6 +13,11 @@
 
 #define UNUSED __attribute__ ((unused))
 
+typedef struct list_s {
+	int data;
+	struct list_s *next;
+} list_t;
+
 int my_isneg(int);
 char *my_strndup(char *, unsigned  int);
 void my_put_nbr(int);
@@ -44,5 +49,8 @@ void d_adr(const char *, va_list);
 void d_b(const char *, va_list);
 char find_flag(const char *, int);
 void (*chooseFlag[16])(char *, va_list);
+list_t *add_node(list_t *, list_t *);
+list_t *create_node(int);
+list_t *rm_last_node(list_t *);
 
 #endif /* !MY_H_ */
