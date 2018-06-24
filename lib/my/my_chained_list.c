@@ -23,7 +23,7 @@ list_t *rm_index_node(list_t *first_element, unsigned int index)
 {
 	list_t *tmp = first_element;
 
-	if (!first_element || index < 0)
+	if (!first_element)
 		return (first_element);
 	if (index == 0)
 		return (rm_first_node(first_element));
