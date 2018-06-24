@@ -27,9 +27,7 @@ OBJ=	$(SRC:.c=.o)
 
 NAME= 	project_name
 
-CFLAGS=	-Iinclude -Llib/my -lmy
-
-WALLFL=	-g -W -Wall -Wextra
+CFLAGS=	-Iinclude -Llib/my -lmy -g -W -Wall -Wextra
 
 ########################### RULES
 
@@ -41,7 +39,7 @@ subsystem:
 		@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Library compilation finished !" "$(NO_COLOR)"
 
 comp:	$(OBJ)
-		@gcc -o $(NAME) $(OBJ) $(WALLFL) $(CFLAGS)
+		@gcc -o $(NAME) $(OBJ) $(CFLAGS)
 		@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Compilation finished !" "$(NO_COLOR)"
 
 tests_run:
