@@ -47,10 +47,12 @@ void d_o(const char *, va_list);
 void d_none(const char *, va_list);
 void d_adr(const char *, va_list);
 void d_b(const char *, va_list);
-char find_flag(const char *, int);
 void (*chooseFlag[16])(char *, va_list);
+char find_flag(const char *, int);
 list_t *add_node(list_t *, list_t *);
 list_t *create_node(int);
+list_t *rm_first_node(list_t *);
 list_t *rm_last_node(list_t *);
+list_t *rm_index_node(list_t *, int);
 
 #endif /* !MY_H_ */
