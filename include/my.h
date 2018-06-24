@@ -53,6 +53,6 @@ list_t *add_node(list_t *, list_t *);
 list_t *create_node(int);
 list_t *rm_first_node(list_t *);
 list_t *rm_last_node(list_t *);
-list_t *rm_index_node(list_t *, int);
+list_t *rm_index_node(list_t *, unsigned int);
 
 #endif /* !MY_H_ */
