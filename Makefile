@@ -21,7 +21,7 @@ COM=	"Compiling"
 
 ########################### GENERIC
 
-SRC=	main.c
+SRC=	main_test.c
 
 OBJ=	$(SRC:.c=.o)
 
