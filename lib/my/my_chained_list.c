@@ -19,7 +19,7 @@ list_t *add_node(list_t *first_element, list_t *new_node)
 	return (first_element);
 }
 
-list_t *rm_index_node(list_t *first_element, int index)
+list_t *rm_index_node(list_t *first_element, unsigned int index)
 {
 	list_t *tmp = first_element;
 
