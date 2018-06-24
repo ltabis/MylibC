@@ -56,11 +56,15 @@ list_t *rm_last_node(list_t *first_element)
 {
 	list_t *tmp = first_element;
 
-	if (!tmp || !tmp->next)
+	if (!tmp || !tmp->next) {
+		if (tmp && !tmp->next)
+			free(tmp);
 		return (NULL);
-	while (tmp->next)
+	}
+	while (tmp->next->next)
 		tmp = tmp->next;
-	free(tmp);
+	free(tmp->next);
+	tmp->next = NULL;
 	return (first_element);
 }
 
