@@ -35,4 +35,17 @@ Test(lib_tests, chained_list_generator_2)
 	while (list->next)
 		list = list->next;
 	cr_assert_eq(list->data, 48);
+	delete_list(&list);
+}
+
+Test(lib_tests, chained_list_generator_3)
+{
+	list_t *list = NULL;
+
+	list = rm_last_node(list);
+	list = rm_first_node(list);
+	list = rm_index_node(list, 422);
+	cr_assert_eq(list, NULL);
+	delete_list(&list);
+	cr_assert_eq(list, NULL);
 }
