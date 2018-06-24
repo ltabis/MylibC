@@ -31,3 +31,17 @@ Test(lib_tests, concat)
 	free(concat);
 	free(concat5);
 }
+
+Test(lib_tests, chained_list_generator)
+{
+	list_t *list = create_node(5);
+
+	list = rm_first_node(list);
+	list = rm_index_node(list, 5);
+	list = create_node(3);
+	list = add_node(list, create_node(4));
+	list = add_node(list, create_node(24));
+	list = rm_last_node(list);
+	cr_assert_eq(list->data, 3);
+	cr_assert_eq(list->next->data, 4);
+}
