@@ -12,7 +12,7 @@ list_t *add_node(list_t *first_element, list_t *new_node)
 	list_t *tmp = first_element;
 
 	if (!tmp)
-	        return (node);
+	        return (new_node);
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = new_node;
@@ -23,7 +23,7 @@ list_t *rm_index_node(list_t *first_element, unsigned int index)
 {
 	list_t *tmp = first_element;
 
-	if (index < 0)
+	if (!first_element || index < 0)
 		return (first_element);
 	if (index == 0)
 		return (rm_first_node(first_element));
