@@ -55,5 +55,6 @@ list_t *rm_first_node(list_t *);
 list_t *rm_last_node(list_t *);
 list_t *rm_index_node(list_t *, unsigned int);
 void delete_list(list_t **);
+unsigned int get_list_size(list_t *);
 
 #endif /* !MY_H_ */
