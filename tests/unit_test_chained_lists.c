@@ -21,6 +21,8 @@ Test(lib_tests, chained_list_generator_1)
 	list = rm_last_node(list);
 	cr_assert_eq(list->data, 3);
 	cr_assert_eq(list->next->data, 4);
+	delete_list(&list);
+	cr_assert_eq(list, NULL);
 }
 
 Test(lib_tests, chained_list_generator_2)
@@ -36,6 +38,7 @@ Test(lib_tests, chained_list_generator_2)
 		list = list->next;
 	cr_assert_eq(list->data, 48);
 	delete_list(&list);
+	cr_assert_eq(list, NULL);
 }
 
 Test(lib_tests, chained_list_generator_3)
@@ -81,5 +84,7 @@ Test(lib_tests, chained_list_generator_5)
 	list = rm_index_node(list, 5);
 	cr_assert_eq(list->data, 0);
 	list = rm_index_node(list, 0);
+	cr_assert_eq(list, NULL);
+	delete_list(&list);
 	cr_assert_eq(list, NULL);
 }
