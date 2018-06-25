@@ -57,5 +57,6 @@ list_t *rm_index_node(list_t *, unsigned int);
 void delete_list(list_t **);
 unsigned int get_list_size(list_t *);
 char *my_itoa(int);
+int my_getenv(const char *, char * const *);
 
 #endif /* !MY_H_ */
