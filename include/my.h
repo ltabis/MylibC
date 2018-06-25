@@ -58,5 +58,6 @@ void delete_list(list_t **);
 unsigned int get_list_size(list_t *);
 char *my_itoa(int);
 int my_getenv(const char *, char * const *);
+void my_clean_str(char *);
 
 #endif /* !MY_H_ */
