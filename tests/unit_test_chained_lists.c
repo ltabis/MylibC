@@ -49,3 +49,37 @@ Test(lib_tests, chained_list_generator_3)
 	delete_list(&list);
 	cr_assert_eq(list, NULL);
 }
+
+Test(lib_tests, chained_list_generator_4)
+{
+	list_t *list = NULL;
+	list_t *tmp = NULL;
+
+	for (unsigned int i = 0; i < 50; i++)
+		list = add_node(list, create_node(i));
+	tmp = list;
+	for (unsigned int i = 0; tmp->next; i++) {
+		cr_assert_eq(tmp->data, i);
+		tmp = tmp->next;
+	}
+	delete_list(&list);
+	cr_assert_eq(list, NULL);
+}
+
+Test(lib_tests, chained_list_generator_5)
+{
+	list_t *list = NULL;
+
+	list = add_node(list, create_node(0));
+	cr_assert_eq(list->data, 0);
+	list = rm_last_node(list);
+	cr_assert_eq(list, NULL);
+	list = add_node(list, create_node(0));
+	list = rm_first_node(list);
+	cr_assert_eq(list, NULL);
+	list = add_node(list, create_node(0));
+	list = rm_index_node(list, 5);
+	cr_assert_eq(list->data, 0);
+	list = rm_index_node(list, 0);
+	cr_assert_eq(list, NULL);
+}
