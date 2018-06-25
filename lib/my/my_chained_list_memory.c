@@ -18,3 +18,12 @@ void delete_list(list_t **list)
 	}
 	*list = NULL;
 }
+
+unsigned int get_list_size(list_t *list)
+{
+	unsigned int elements = 1;
+
+	for (; list && list->next; elements++)
+		list = list->next;
+	return (!list ? 0 : elements);
+}
