@@ -7,5 +7,5 @@ Unit testing with criterion included
 
 ## Dependencies
 
-Criterion (unit testing library)
-Makefile
+> Criterion (unit testing library)
+> Makefile
