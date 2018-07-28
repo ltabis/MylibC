@@ -37,6 +37,7 @@ int my_strrevcmp(const char *, const char *);
 int my_getenv(const char *, char * const *);
 int my_strcmp(char const *, char const *);
 int my_printf(const char *, ...);
+int my_isalpha(const char *);
 int my_getnbr(char const *);
 int my_isnum(const char *);
 int my_isneg(int);
