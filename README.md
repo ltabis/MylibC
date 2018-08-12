@@ -9,7 +9,7 @@ Unit testing with criterion included in the test folder.
 
 ```my_chained_list.c```, ```my_chained_list_memory.c``` Creates chained lists with multiple function to pop and insert items.
 
-```my_clean_str.c``` Delete unnecessarycharacters from a string.
+```my_clean_str.c``` Delete unnecessary characters from a string.
 
 ```my_concat.c``` Concatenate two strings.
 
