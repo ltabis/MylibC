@@ -12,10 +12,10 @@
 int main(int ac, char **av, char * const *env)
 {
 	// ## START TESTING
-	char **matrix = generate_char_matrix(5, 5, 'o');
+	float **matrix = generate_float_matrix(10, 10, 1.5f);
 
-	display_matrix((void **)matrix, 5, 5, 'c');
-	delete_mundane_matrix((void **)matrix, 5, 5);
+	display_matrix((void **)matrix, 5, 5, 'f');
+	delete_mundane_matrix((void **)matrix, 10, 10);
 // ## END TESTING
 	return (0);
 }

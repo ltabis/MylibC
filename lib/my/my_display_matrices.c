@@ -38,7 +38,7 @@ void disp_double(void **origin_matrix, int col, int row)
 			return;
 		for (unsigned int j = 0; j < row; j++)
 			printf("%e ", matrix[i][j]);
-		my_putchar('\n');
+		printf("\n");
 	}
 }
 
@@ -53,7 +53,7 @@ void disp_float(void **origin_matrix, int col, int row)
 			return;
 		for (unsigned int j = 0; j < row; j++)
 			printf("%f ", matrix[i][j]);
-		my_putchar('\n');
+		printf("\n");
 	}
 }
 
