@@ -24,14 +24,66 @@ int **generate_integer_matrix(int col, int row, int init)
 	return matrix;
 }
 
-void delete_matrix(void **matrix, int row, int col)
+float **generate_double_matrix(int col, int row, double init)
 {
+	double **matrix = malloc(sizeof(double *) * col);
+
 	if (!matrix)
-		return;
+		return NULL;
 	for (unsigned int i = 0; i < col; i++) {
+		matrix[i] = malloc(sizeof(double) * row);
 		if (!matrix[i])
-			return;
-		free(matrix[i]);
+			return NULL;
+		for (unsigned int j = 0; j < row; j++)
+			matrix[i][j] = init;
 	}
-	free(matrix);
+	return matrix;
+}
+
+float **generate_float_matrix(int col, int row, float init)
+{
+	float **matrix = malloc(sizeof(float *) * col);
+
+	if (!matrix)
+		return NULL;
+	for (unsigned int i = 0; i < col; i++) {
+		matrix[i] = malloc(sizeof(float) * row);
+		if (!matrix[i])
+			return NULL;
+		for (unsigned int j = 0; j < row; j++)
+			matrix[i][j] = init;
+	}
+	return matrix;
+}
+
+char **generate_char_matrix(int col, int row, char init)
+{
+	char **matrix = malloc(sizeof(char *) * col);
+
+	if (!matrix)
+		return NULL;
+	for (unsigned int i = 0; i < col; i++) {
+		matrix[i] = malloc(sizeof(char) * row);
+		if (!matrix[i])
+			return NULL;
+		for (unsigned int j = 0; j < row; j++)
+			matrix[i][j] = init;
+	}
+	return matrix;
+}
+
+char ***generate_string_matrix(int col, int row, char *init)
+{
+	char ***matrix = malloc(sizeof(char **) * col);
+
+	if (!matrix)
+		return NULL;
+	for (unsigned int i = 0; i < col; i++) {
+		matrix[i] = malloc(sizeof(char *) * row);
+		if (!matrix[i])
+			return NULL;
+		for (unsigned int j = 0; j < row; j++)
+			matrix[i][j] = my_strdup(init);
+	}
+	return matrix;
 }
