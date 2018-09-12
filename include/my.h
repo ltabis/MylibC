@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2017
+1;4804;0c** EPITECH PROJECT, 2017
 ** my.h
 ** File description:
 ** library prototypes
