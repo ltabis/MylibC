@@ -24,7 +24,7 @@ int **generate_integer_matrix(int col, int row, int init)
 	return matrix;
 }
 
-float **generate_double_matrix(int col, int row, double init)
+double **generate_double_matrix(int col, int row, double init)
 {
 	double **matrix = malloc(sizeof(double *) * col);
 
