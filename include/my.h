@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2017
+1;4804;0c** EPITECH PROJECT, 2017
 ** my.h
 ** File description:
 ** library prototypes
@@ -23,12 +23,15 @@ list_t *create_node(int);
 list_t *rm_first_node(list_t *);
 list_t *rm_last_node(list_t *);
 list_t *rm_index_node(list_t *, unsigned int);
+char find_flag(const char *, int);
 char *my_nconcat(char const *, char const *, unsigned int);
 char *my_concat(char const *, char const *);
 char *my_strndup(char *, unsigned  int);
 char *my_strdup(char const *);
 char *my_revstr(char *);
 char *my_itoa(int);
+char **generate_char_matrix(int, int, char);
+char ***generate_string_matrix(int, int, char *);
 unsigned int my_strlen(char const *);
 unsigned int get_list_size(list_t *);
 int my_strnrevcmp(const char *, const char *, unsigned int);
@@ -41,7 +44,11 @@ int my_isalpha(const char *);
 int my_getnbr(char const *);
 int my_isnum(const char *);
 int my_isneg(int);
-char find_flag(const char *, int);
+int **generate_integer_matrix(int, int, int);
+float **generate_float_matrix(int, int, float);
+double **generate_double_matrix(int, int, double);
+void delete_mundane_matrix(void **, int, int);
+void display_matrix(void **, int, int, char);
 void (*chooseFlag[16])(char *, va_list);
 void d_ex_down(const char *, va_list);
 void d_ex_up(const char *, va_list);
