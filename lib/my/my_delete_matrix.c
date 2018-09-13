@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-void delete_mundane_matrix(void **matrix, int row, int col)
+void delete_mundane_matrix(void **matrix, unsigned int col)
 {
 	if (!matrix)
 		return;
@@ -19,7 +19,7 @@ void delete_mundane_matrix(void **matrix, int row, int col)
 	free(matrix);
 }
 
-void delete_string_matrix(char ***matrix, int row, int col)
+void delete_string_matrix(char ***matrix, unsigned int row, unsigned int col)
 {
 	if (!matrix)
 		return;

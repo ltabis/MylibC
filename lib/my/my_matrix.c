@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "my.h"
 
-int **generate_integer_matrix(int col, int row, int init)
+int **generate_integer_matrix(unsigned int col, unsigned int row, int init)
 {
 	int **matrix = malloc(sizeof(int *) * col);
 
@@ -24,7 +24,7 @@ int **generate_integer_matrix(int col, int row, int init)
 	return matrix;
 }
 
-double **generate_double_matrix(int col, int row, double init)
+double **generate_double_matrix(unsigned int col, unsigned int row, double init)
 {
 	double **matrix = malloc(sizeof(double *) * col);
 
@@ -40,7 +40,7 @@ double **generate_double_matrix(int col, int row, double init)
 	return matrix;
 }
 
-float **generate_float_matrix(int col, int row, float init)
+float **generate_float_matrix(unsigned int col, unsigned int row, float init)
 {
 	float **matrix = malloc(sizeof(float *) * col);
 
@@ -56,7 +56,7 @@ float **generate_float_matrix(int col, int row, float init)
 	return matrix;
 }
 
-char **generate_char_matrix(int col, int row, char init)
+char **generate_char_matrix(unsigned int col, unsigned int row, char init)
 {
 	char **matrix = malloc(sizeof(char *) * col);
 
@@ -72,7 +72,7 @@ char **generate_char_matrix(int col, int row, char init)
 	return matrix;
 }
 
-char ***generate_string_matrix(int col, int row, char *init)
+char ***generate_string_matrix(unsigned int col, unsigned int row, char *init)
 {
 	char ***matrix = malloc(sizeof(char **) * col);
 

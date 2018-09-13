@@ -10,7 +10,7 @@
 
 /* Functions mainly used for debugging */
 
-void disp_integer(void **origin_matrix, int col, int row)
+void disp_integer(void **origin_matrix, unsigned int col, unsigned int row)
 {
 	int **matrix = (int **)origin_matrix;
 	
@@ -27,7 +27,7 @@ void disp_integer(void **origin_matrix, int col, int row)
 	}
 }
 
-void disp_double(void **origin_matrix, int col, int row)
+void disp_double(void **origin_matrix, unsigned int col, unsigned int row)
 {
 	double **matrix = (double **)origin_matrix;
 
@@ -42,7 +42,7 @@ void disp_double(void **origin_matrix, int col, int row)
 	}
 }
 
-void disp_float(void **origin_matrix, int col, int row)
+void disp_float(void **origin_matrix, unsigned int col, unsigned int row)
 {
 	float **matrix = (float **)origin_matrix;
 
@@ -57,7 +57,7 @@ void disp_float(void **origin_matrix, int col, int row)
 	}
 }
 
-void disp_char(void **origin_matrix, int col, int row)
+void disp_char(void **origin_matrix, unsigned int col, unsigned int row)
 {
 	char **matrix = (char **)origin_matrix;
 
@@ -74,13 +74,14 @@ void disp_char(void **origin_matrix, int col, int row)
 	}
 }
 
-void display_matrix(void **matrix, int col, int row, char type)
+void display_matrix(void **matrix, unsigned int col, unsigned int row, char type)
 {
 	char types[5] = "idfc";
-	void (*display_method[4])(void **, int, int) = {disp_integer,
-				disp_double,
-				disp_float,
-				disp_char};
+	void (*display_method[4])(void **, unsigned int, unsigned int) =
+		{disp_integer,
+		disp_double,
+		disp_float,
+		disp_char};
 
 	for (unsigned int i = 0; i < 4; i++)
 		if (types[i] == type)
