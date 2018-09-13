@@ -13,7 +13,7 @@
 void disp_integer(void **origin_matrix, unsigned int col, unsigned int row)
 {
 	int **matrix = (int **)origin_matrix;
-	
+
 	if (!matrix)
 		return;
 	for (unsigned int i = 0; i < col; i++) {

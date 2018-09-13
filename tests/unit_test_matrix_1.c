@@ -17,6 +17,7 @@ Test(lib_tests, matrix_generation_integer)
 		for (unsigned int j = 0; j < 5; j++)
 			cr_assert_eq(matrix[i][j], 10);
 	delete_mundane_matrix((void **)matrix, 5);
+	display_matrix(NULL, 5, 5, 'i');
 }
 
 Test(lib_tests, matrix_generation_double)
@@ -27,6 +28,7 @@ Test(lib_tests, matrix_generation_double)
 		for (unsigned int j = 0; j < 10; j++)
 			cr_assert_eq(matrix[i][j], 92.3);
 	delete_mundane_matrix((void **)matrix, 10);
+	display_matrix(NULL, 5, 90, 'f');
 }
 
 Test(lib_tests, matrix_generation_float)
@@ -37,6 +39,7 @@ Test(lib_tests, matrix_generation_float)
 		for (unsigned int j = 0; j < 7; j++)
 			cr_assert_eq(matrix[i][j], 9.452f);
 	delete_mundane_matrix((void **)matrix, 7);
+	display_matrix(NULL, 1, 3, 'd');
 }
 
 Test(lib_tests, matrix_generation_char)
@@ -46,5 +49,13 @@ Test(lib_tests, matrix_generation_char)
 	for (unsigned int i = 0; i < 50; i++)
 		for (unsigned int j = 0; j < 100; j++)
 			cr_assert_eq(matrix[i][j], 'o');
+	delete_mundane_matrix((void **)matrix, 50);
+	display_matrix(NULL, 1000, 10, 'c');
+}
+
+Test(lib_tests, matrix_deletion_null)
+{
+	int **matrix = NULL;
+
 	delete_mundane_matrix((void **)matrix, 50);
 }
