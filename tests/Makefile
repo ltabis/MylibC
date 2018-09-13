@@ -13,7 +13,8 @@ SRC_UT_DIR=     $(realpath .)
 
 SRC_UT=         $(SRC_UT_DIR)/unit_test_1.c	\
 	$(SRC_UT_DIR)/unit_test_chained_lists.c	\
-	$(SRC_UT_DIR)/unit_test_clean_str.c	\
+	$(SRC_UT_DIR)/unit_test_matrix_1.c	\
+	$(SRC_UT_DIR)/unit_test_clean_str.c
 
 
 OBJ=            $(SRC:.c=.o) $(SRC_UT:.c=.o)
