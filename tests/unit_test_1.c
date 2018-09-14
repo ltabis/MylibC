@@ -31,3 +31,23 @@ Test(lib_tests, concat)
 	free(concat);
 	free(concat5);
 }
+
+Test(lib_tests, my_strlen_tests)
+{
+	char *str_1 = "i'm a test";
+	char str_2[] = "testing";
+	char str_3[7] = "is not";
+	char *str_4 = "very fun lmao";
+	char *str_5 = NULL;
+	unsigned int res_1 = my_strlen(str_1);
+	unsigned int res_2 = my_strlen(str_2);
+	unsigned int res_3 = my_strlen(str_3);
+	unsigned int res_4 = my_strlen(str_4);
+	unsigned int res_5 = my_strlen(str_5);
+
+	cr_assert_eq(res_1, 10);
+	cr_assert_eq(res_2, 7);
+	cr_assert_eq(res_3, 6);
+	cr_assert_eq(res_4, 13);
+	cr_assert_eq(res_5, 0);
+}
