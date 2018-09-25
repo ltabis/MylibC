@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my_isum.c
 ** File description:
-** search if a string contain alpha caracters or not (returns -1 if not / 0 if true)
+** search if a string contain alpha caracters or not (returns -1 false / 0 true)
 */
 
 int my_isalpha(const char *str)

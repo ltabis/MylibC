@@ -74,7 +74,8 @@ void disp_char(void **origin_matrix, unsigned int col, unsigned int row)
 	}
 }
 
-void display_matrix(void **matrix, unsigned int col, unsigned int row, char type)
+void display_matrix(void **matrix, unsigned int col,
+	unsigned int row, char type)
 {
 	char types[5] = "idfc";
 	void (*display_method[4])(void **, unsigned int, unsigned int) =
