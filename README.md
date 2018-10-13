@@ -15,6 +15,8 @@ Unit testing with criterion included in the test folder.
 
 ```my_nconcat.c``` Concatenate two strings by a given offset.
 
+```my_nconcat.c``` Creates and deletes a copy of a double char board.
+
 ```my_matrix.c``` Generate matrices from a type (char, int, float, double). Cleaning and display functions included.
 
 ```my_getenv.c``` Return 0 if the variable passed as parameter is present in the environnement.
