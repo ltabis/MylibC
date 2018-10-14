@@ -31,10 +31,12 @@ Test(lib_tests, isalpha)
 	int c = my_isalpha("alpha");
 	int d = my_isalpha("sefsefsef");
 	int e = my_isalpha(NULL);
+	int f = my_isalpha("aLpHa");
 
 	cr_assert_eq(a, 1);
 	cr_assert_eq(b, 1);
 	cr_assert_eq(c, 0);
 	cr_assert_eq(d, 0);
 	cr_assert_eq(e, -1);
+	cr_assert_eq(f, 0);
 }
