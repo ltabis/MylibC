@@ -14,6 +14,6 @@ int my_isnum(const char *str)
 	i = str[0] == '-' ? 1 : 0;
 	for (; str[i] != 0; i++)
 		if (str[i] < '0' || str[i] > '9')
-			return (-1);
+			return (1);
 	return (0);
 }
