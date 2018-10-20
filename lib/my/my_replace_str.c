@@ -7,11 +7,11 @@
 
 #include "my.h"
 
-int check_patern(char *str, char *pat)
+unsigned int check_patern(char *str, char *pat)
 {
 	unsigned int i = 0;
 
-	for (; str[i] == pat[i]; i++);
+	for (; str[i] && str[i] == pat[i]; i++);
 	return (i);
 }
 
@@ -66,14 +66,19 @@ char *my_replace_str(char *str, char *pat, char *rep, int iter)
 	my_strlen(pat) > my_strlen(rep) ? my_strlen(pat) - my_strlen(rep) :
 	my_strlen(rep) - my_strlen(pat);
 
-	for (unsigned int i = 0, done = 0; str[i] && done != iter; i++) {
-		int index = check_patern(&str[i], pat);
-		if (index == my_strlen(pat) && chng_lenght != 0) {
-			str = replace_patern_modif(str, index - my_strlen(pat), pat, rep);
+	if (my_strlen(pat) == my_strlen(rep) &&
+	check_patern(rep, pat) == my_strlen(rep))
+		return (NULL);
+	for (int i = 0, done = 0, idx = 0; str && str[i] && done != iter; i++) {
+		idx = check_patern(&str[i], pat);
+		if (idx == my_strlen(pat) && chng_lenght != 0) {
+			str = replace_patern_modif(str, i, pat, rep);
 			done++;
-		} else if (index == my_strlen(pat) && chng_lenght == 0) {
-			str = replace_patern(str, index - my_strlen(pat), rep);
+			i += my_strlen(rep) - 1;
+		} else if (idx == my_strlen(pat) && chng_lenght == 0) {
+			str = replace_patern(str, i, rep);
 			done++;
+			i += my_strlen(rep) - 1;
 		}
 	}
 	return (str);
