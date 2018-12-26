@@ -22,14 +22,18 @@ Test(lib_tests, concat)
 	char *concat3 = my_concat("test", NULL);
 	char *concat4 = my_concat(NULL, NULL);
 	char *concat5 = my_concat("test", "\1");
+	char *concat6 = my_nconcat("nice", "test", 15);
+	char *concat7 = my_nconcat("test", "TEST", 4);
+	char *concat8 = my_nconcat("test", NULL, 50);
 
 	cr_assert_str_eq(concat, "I am a test!");
 	cr_assert_eq(concat2, NULL);
 	cr_assert_eq(concat3, NULL);
 	cr_assert_eq(concat4, NULL);
 	cr_assert_str_eq(concat5, "test\1");
-	free(concat);
-	free(concat5);
+	cr_assert_str_eq(concat6, "nicetest");
+	cr_assert_str_eq(concat7, "test");
+	cr_assert_eq(concat8, NULL);
 }
 
 Test(lib_tests, my_strlen_tests)
