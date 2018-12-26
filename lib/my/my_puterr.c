@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my_putstr.c
 ** File description:
-** task02 Day04
+** display str on screen
 */
 
 #include <unistd.h>
