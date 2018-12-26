@@ -17,6 +17,7 @@ SRC_UT=         $(SRC_UT_DIR)/unit_test_1.c	\
 		$(SRC_UT_DIR)/unit_test_itoa.c	\
 		$(SRC_UT_DIR)/unit_test_alphanumeric.c	\
 		$(SRC_UT_DIR)/unit_test_revstring.c	\
+		$(SRC_UT_DIR)/unit_test_getnbr.c	\
 		$(SRC_UT_DIR)/unit_test_clean_str.c
 
 
