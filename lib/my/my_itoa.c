@@ -14,8 +14,7 @@ char *my_itoa(int nbr)
 	char sign = nbr >= 0 ? 0 : 1;
 
 	nbr *= sign == 1 ? -1 : 1;
-	for (int tmp = nbr; tmp >= 10; i++)
-		tmp /= 10;
+	for (int tmp = nbr; tmp >= 10; tmp /= 10, i++);
 	str = malloc(sizeof(char) * (i + sign + 1));
 	if (!str)
 		return (NULL);

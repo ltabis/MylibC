@@ -71,11 +71,11 @@ char *my_replace_str(char *str, char *pat, char *rep, int iter)
 		return (NULL);
 	for (int i = 0, done = 0, idx = 0; str && str[i] && done != iter; i++) {
 		idx = check_patern(&str[i], pat);
-		if (idx == my_strlen(pat) && chng_lenght != 0) {
+		if (idx == (int)my_strlen(pat) && chng_lenght != 0) {
 			str = replace_patern_modif(str, i, pat, rep);
 			done++;
 			i += my_strlen(rep) - 1;
-		} else if (idx == my_strlen(pat) && chng_lenght == 0) {
+		} else if (idx == (int)my_strlen(pat) && chng_lenght == 0) {
 			str = replace_patern(str, i, rep);
 			done++;
 			i += my_strlen(rep) - 1;
