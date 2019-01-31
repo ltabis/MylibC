@@ -22,6 +22,7 @@ list_t *add_node(list_t *first_element, list_t *new_node)
 list_t *rm_index_node(list_t *first_element, unsigned int index)
 {
 	list_t *tmp = first_element;
+	list_t *tmp2 = NULL;
 
 	if (!first_element || get_list_size(first_element) < index)
 		return (first_element);
@@ -31,7 +32,7 @@ list_t *rm_index_node(list_t *first_element, unsigned int index)
 		first_element = first_element->next;
 	if (!first_element->next)
 		return (rm_last_node(first_element));
-	list_t *tmp2 = first_element;
+        tmp2 = first_element;
 	while (tmp2->next != tmp)
 		tmp2 = tmp2->next;
 	tmp2->next = tmp->next;
@@ -41,13 +42,15 @@ list_t *rm_index_node(list_t *first_element, unsigned int index)
 
 list_t *rm_first_node(list_t *first_element)
 {
+	list_t *next = NULL;
+
 	if (!first_element)
 		return (NULL);
 	else if (!first_element->next) {
 		free(first_element);
 		return (NULL);
 	}
-	list_t *next = first_element->next;
+	next = first_element->next;
 	free(first_element);
 	return (next);
 }
