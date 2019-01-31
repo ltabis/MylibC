@@ -27,3 +27,12 @@ unsigned int get_list_size(list_t *list)
 		list = list->next;
 	return (!list ? 0 : elements);
 }
+
+list_t *get_element(list_t *list, unsigned int idx)
+{
+    if (!list || get_list_size(list) <= idx)
+        return (NULL);
+    for (unsigned int i = 0; list->next && i < idx; i++)
+        list = list->next;
+    return (list);
+}

@@ -13,6 +13,7 @@ SRC_UT_DIR=     $(realpath .)
 
 SRC_UT=         $(SRC_UT_DIR)/unit_test_1.c	\
 		$(SRC_UT_DIR)/unit_test_chained_lists.c	\
+		$(SRC_UT_DIR)/unit_test_chained_lists_2.c	\
 		$(SRC_UT_DIR)/unit_test_matrix_1.c	\
 		$(SRC_UT_DIR)/unit_test_itoa.c	\
 		$(SRC_UT_DIR)/unit_test_alphanumeric.c	\

@@ -30,6 +30,6 @@ char **my_copy_board(char **src)
 		return (NULL);
 	for (unsigned int i = 0; src[i]; i++)
 		cpy[i] = my_strdup(src[i]);
-        cpy[get_board_len(src)] = 0;
+	cpy[get_board_len(src)] = 0;
 	return (cpy);
 }
