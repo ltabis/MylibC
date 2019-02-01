@@ -14,12 +14,13 @@
 #define UNUSED __attribute__ ((unused))
 
 typedef struct list_s {
-	int data;
-	struct list_s *next;
+    void *data;
+    size_t size;
+    struct list_s *next;
 } list_t;
 
 list_t *add_node(list_t *, list_t *);
-list_t *create_node(int);
+list_t *create_node(void *, size_t);
 list_t *rm_first_node(list_t *);
 list_t *rm_last_node(list_t *);
 list_t *get_element(list_t *, unsigned int);
