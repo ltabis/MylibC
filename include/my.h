@@ -10,6 +10,7 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define UNUSED __attribute__ ((unused))
 
@@ -28,6 +29,7 @@ list_t *rm_index_node(list_t *, unsigned int);
 char find_flag(const char *, int);
 char *my_nconcat(char const *, char const *, unsigned int);
 char *my_replace_str(char *, char *, char *, int);
+char *my_concatc(char const *, char const *);
 char *my_concat(char const *, char const *);
 char *my_strndup(char *, unsigned  int);
 char *my_strdup(char const *);
