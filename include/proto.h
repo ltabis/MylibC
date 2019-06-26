@@ -8,7 +8,7 @@
 #ifndef PROTO_H_
 #define PROTO_H_
 
-#define TRUE 1
-#define FALSE 2
+#define TRUE 0
+#define FALSE 1
 
 #endif /* !PROTO_H_ */
