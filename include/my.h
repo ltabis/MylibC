@@ -36,7 +36,7 @@ char *my_strdup(char const *);
 char *my_revstr(char *);
 char *my_itoa(int);
 char **my_str_split(const char *);
-char **my_copy_board(char **);
+char **my_copy_board(const char **);
 char **generate_char_matrix(unsigned int, unsigned int, char);
 char ***generate_string_matrix(unsigned int, unsigned int, char *);
 size_t count_words(const char *str);
