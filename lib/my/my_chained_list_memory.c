@@ -19,20 +19,20 @@ void delete_list(list_t **list)
     *list = NULL;
 }
 
-unsigned int get_list_size(list_t *list)
+size_t get_list_size(list_t *list)
 {
-    unsigned int elements = 1;
+    size_t elements = 1;
 
     for (; list && list->next; elements++)
         list = list->next;
     return (!list ? 0 : elements);
 }
 
-list_t *get_element(list_t *list, unsigned int idx)
+list_t *get_element(list_t *list, size_t idx)
 {
     if (!list || get_list_size(list) <= idx)
         return (NULL);
-    for (unsigned int i = 0; list->next && i < idx; i++)
+    for (size_t i = 0; list->next && i < idx; i++)
         list = list->next;
     return (list);
 }
