@@ -5,15 +5,16 @@
 ** search if a string is num or not (returns -1 if not / 0 if num)
 */
 
+#include <stdlib.h>
+
 int my_isnum(const char *str)
 {
-	unsigned int i = 0;
+    size_t i = str && str[0] == '-' ? 1 : 0;
 
-	if (!str)
-		return (-1);
-	i = str[0] == '-' ? 1 : 0;
-	for (; str[i] != 0; i++)
-		if (str[i] < '0' || str[i] > '9')
-			return (1);
-	return (0);
+    if (!str)
+        return (-1);
+    for (; str[i]; ++i)
+        if (str[i] < '0' || str[i] > '9')
+            return (1);
+    return (0);
 }

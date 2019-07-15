@@ -5,14 +5,13 @@
 ** compare two strings for n characters
 */
 
-int my_strncmp(char const *s1, char const *s2, unsigned int n)
-{
-	unsigned int count = 0;
-	unsigned int result = 0;
+#include <stdlib.h>
 
-	while (s2[count] == s1[count] && s1[count] != 0 &&
-	s2[count] != 0 && count < n)
-		count++;
-	result = s1[count] - s2[count];
-	return (result);
+int my_strncmp(char const *s1, char const *s2, size_t n)
+{
+    size_t count = 0;
+
+    for (; s2[count] == s1[count] && s1[count] != 0 &&
+    s2[count] != 0 && count < n; ++count);
+    return (s1[count] - s2[count]);
 }

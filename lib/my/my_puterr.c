@@ -10,5 +10,5 @@
 
 void my_puterr(char const *str)
 {
-	write(2, str, my_strlen(str));
+    write(2, str, my_strlen(str));
 }

@@ -28,7 +28,7 @@ char **my_copy_board(const char **src)
 
     if (!cpy)
         return (NULL);
-    for (unsigned int i = 0; src[i]; ++i)
+    for (size_t i = 0; src[i]; ++i)
         if (!(cpy[i] = my_strdup(src[i])))
             return (NULL);
     cpy[get_board_len(src)] = 0;

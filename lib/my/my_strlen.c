@@ -5,12 +5,14 @@
 ** determinate the lenght of a string
 */
 
-unsigned int my_strlen(char const *str)
-{
-	unsigned int i = 0;
+#include <stdlib.h>
 
-	if (!str)
-		return (0);
-	for (; str[i]; i++);
-	return (i);
+size_t my_strlen(char const *str)
+{
+    size_t i = 0;
+
+    if (!str)
+        return (0);
+    for (; str[i]; ++i);
+    return (i);
 }

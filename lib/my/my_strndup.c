@@ -8,17 +8,14 @@
 #include <stdlib.h>
 #include "my.h"
 
-char *my_strndup(char *src, unsigned int n)
+char *my_strndup(const char *src, size_t n)
 {
-	char *str = NULL;
-	unsigned int i = 0;
+    char *str = NULL;
+    size_t i = 0;
 
-	if (!src)
-		return (NULL);
-	str = malloc(sizeof(char) * (n + 1));
-	if (!str)
-		return (NULL);
-	for (; src[i] != 0 && i < n; str[i] = src[i], i++);
-	str[i] = 0;
-	return (str);
+    if (!src || !(str = malloc(sizeof(char) * (n + 1))))
+        return (NULL);
+    for (; src[i] != 0 && i < n; str[i] = src[i], ++i);
+    str[i] = 0;
+    return (str);
 }

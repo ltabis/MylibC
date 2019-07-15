@@ -31,7 +31,7 @@ char *my_nconcat(char const *, char const *, size_t);
 char *my_replace_str(char *, char *, char *, int);
 char *my_concatc(char const *, char const *);
 char *my_concat(char const *, char const *);
-char *my_strndup(char *, unsigned  int);
+char *my_strndup(const char *, size_t);
 char *my_strdup(char const *);
 char *my_revstr(char *);
 char *my_itoa(int);
