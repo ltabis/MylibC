@@ -38,8 +38,8 @@ map_t *map_push(map_t *map,
     memcpy(node->value, value, value_size);
     node->insertion_type = DUPLICATE;
   } else {
-    node->insertion_type = COPY;
     node->value = value;
+    node->insertion_type = COPY;
   }
 
   node->value_size = value_size;
@@ -60,13 +60,13 @@ map_t *map_remove(map_t *map, const char *key)
   if (!map || !key)
     return map;
 
-  map_t *last_node = NULL;
   map_t *head = map;
+  map_t *last_node = map;
 
   for (; map->key; last_node = map, map = map->next)
     if (!strcmp(key, map->key))
       break;
-
+  
   if (!map->key)
     return map;
 

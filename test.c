@@ -32,12 +32,14 @@ int main(void)
 		 COPY);
 
   map_debug(map);
+  map = map_remove(map, "first");
+  map_debug(map);
 
   const char *value1 = map_get(map, "first");
   const int *value2 = map_get(map, "second");
 
-  printf("My first value: %s\n", value1);
-  printf("My second value: %d\n", *value2);
+  if (value1) printf("My first value: %s\n", value1);
+  if (value2) printf("My second value: %d\n", *value2);
 
   map_destroy(map);
   return 0;

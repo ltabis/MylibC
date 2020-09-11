@@ -9,7 +9,7 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME 	= 	libmy.a
 
-CFLAGS  =	-iquote ../../include
+CFLAGS  =	-iquote ../../include -g -W -Wall -Wextra
 
 all:		$(NAME)
 
