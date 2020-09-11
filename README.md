@@ -55,6 +55,72 @@ Unit testing with criterion included in the test folder.
 
 ```my_strrevcmp.c``` Compare two strings but beginning at the end to first character.
 
+## Map
+
+there is a map data structure included in this library.
+to use it, first init your head node using
+```c
+map_t *map = map_init();
+```
+
+you can store eather a copy of a pointer or duplicate any data inside a node.
+to create a new node, use
+```c
+map_t *map_push(map_t *map,
+                const char *key,
+                void *ptr,
+                size_t value_size,
+                insert insertion_type)
+```
+
+your can then access an element using the 'key' with ``map_get(key)``.
+the ``ptr`` argument points to the data you want store.
+
+you can eather use DUPLICATE to store a duplicate of the data pointed by ptr,
+or COPY to only copy the pointer ``ptr`` into the node. (this way you can store
+elements allocated on the stack)
+
+```c
+map_t *map = map_init();
+
+// duplicate the data pointed to by the third argument.
+map = map_push(map,
+	"first",
+	"duplicate me please",
+	20,
+	DUPLICATE);
+
+// only copy the pointer.
+map = map_push(map,
+	"second",
+	ptr,
+	sizeof(int *),
+	COPY);
+
+// will not be inserted because the key already exists.
+map = map_push(map,
+	"second",
+	ptr,
+	sizeof(int *),
+	COPY);
+```
+
+you can debug the content of your map using
+```c
+map_debug(map);
+```
+
+you free the entire map using
+```c
+map_destroy(map);
+```
+
+or delete a single node using
+```c
+map_remove(map, "key");
+```
+
+
 ## Dependencies
 
 > Criterion (unit testing library)
