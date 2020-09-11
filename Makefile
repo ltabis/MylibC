@@ -1,11 +1,7 @@
 ##
-## EPITECH PROJECT, 2017
 ## Makefile
-## File description:
-## All purpose Makefile by Tabis Lucas
+## Library and tests compilation for the MyLibC project
 ##
-
-########################### PIMP
 
 COM_COLOR=	\033[0;34m
 OBJ_COLOR= 	\033[0;36m
@@ -19,44 +15,36 @@ ERROR=	"[ERROR]"
 WARN=	"[WARNING]"
 COM=	"Compiling"
 
-########################### GENERIC
-
 SRC=	test.c
-
 OBJ=	$(SRC:.c=.o)
-
 NAME= 	project_name
+CFLAGS=	-iquote include -Llib/my -lmy -g -W -Wall -Wextra
 
-CFLAGS=	-Iinclude -Llib/my -lmy -g -W -Wall -Wextra
+all:	library main
 
-########################### RULES
+library:
+	@cd lib/my && $(MAKE)
+	@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Library compilation finished !" "$(NO_COLOR)"
 
-
-all:	subsystem comp
-
-subsystem:
-		cd lib/my && $(MAKE)
-		@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Library compilation finished !" "$(NO_COLOR)"
-
-comp:	$(OBJ)
-		@gcc -o $(NAME) $(OBJ) $(CFLAGS)
-		@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Compilation finished !" "$(NO_COLOR)"
+main: 	$(OBJ)
+	@gcc -o $(NAME) $(OBJ) $(CFLAGS)
+	@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Compilation finished !" "$(NO_COLOR)"
 
 tests_run:
-		cd tests/ && $(MAKE)
+	@cd tests/ && $(MAKE)
 
 clean:
-		@$(RM) -f $(OBJ)
-		@find -type f -name '*~' -delete
-		@find -type f -name '#*#' -delete
-		@find -type f -name '*.gcda' -delete
-		@find -type f -name '*.gcno' -delete
-		cd lib/my && make fclean
-		@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Repository cleaned !" "$(NO_COLOR)"
+	@$(RM) -f $(OBJ)
+	@find -type f -name '*~' -delete
+	@find -type f -name '#*#' -delete
+	@find -type f -name '*.gcda' -delete
+	@find -type f -name '*.gcno' -delete
+	cd lib/my && make fclean
+	@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Repository cleaned !" "$(NO_COLOR)"
 
 fclean:	clean
-		@$(RM) -f $(NAME)
+	@$(RM) -f $(NAME)
 
-re:	fclean all
+re: fclean all
 
-.PHONY:	comp tests_run clean fclean re
+.PHONY:	library main tests_run clean fclean re

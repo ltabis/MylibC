@@ -1,8 +1,6 @@
 ##
-## EPITECH PROJECT, 2017
 ## Makefile
-## File description:
-## task01 Day10
+## Library compilation
 ##
 
 SRC	=	$(wildcard *.c)
@@ -11,7 +9,7 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME 	= 	libmy.a
 
-CFLAGS=	-I../../include
+CFLAGS  =	-iquote ../../include
 
 all:		$(NAME)
 
@@ -24,4 +22,4 @@ clean:
 fclean: 	clean
 		rm -f $(NAME)
 
-re:		fclean all
+re:		clean fclean all
