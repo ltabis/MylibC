@@ -18,12 +18,12 @@ COM=	"Compiling"
 SRC=	test.c
 OBJ=	$(SRC:.c=.o)
 NAME= 	project_name
-CFLAGS=	-iquote include -Llib/my -lmy -g -W -Wall -Wextra
+CFLAGS=	-iquote include -Llib -lmy -g -W -Wall -Wextra
 
 all:	library main
 
 library:
-	@cd lib/my && $(MAKE)
+	@cd lib && $(MAKE)
 	@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Library compilation finished !" "$(NO_COLOR)"
 
 main: 	$(OBJ)
@@ -39,7 +39,7 @@ clean:
 	@find -type f -name '#*#' -delete
 	@find -type f -name '*.gcda' -delete
 	@find -type f -name '*.gcno' -delete
-	cd lib/my && make fclean
+	cd lib && make fclean
 	@echo -e "$(OK_COLOR)"$(OK) "$(COM_COLOR)""Repository cleaned !" "$(NO_COLOR)"
 
 fclean:	clean

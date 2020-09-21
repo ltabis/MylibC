@@ -3,13 +3,13 @@
 ## Library compilation
 ##
 
-SRC	=	$(wildcard *.c)
+SRC	=	$(wildcard src/*.c)
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME 	= 	libmy.a
 
-CFLAGS  =	-iquote ../../include -g -W -Wall -Wextra
+CFLAGS  =	-iquote ../include -g -W -Wall -Wextra
 
 all:		$(NAME)
 
