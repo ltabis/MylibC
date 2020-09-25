@@ -8,24 +8,14 @@
 #ifndef MY_H_
 #define MY_H_
 
+#define CHECK_PTR(x, ret) if (!x) return ret;
+
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
 
 #define UNUSED __attribute__ ((unused))
 
-typedef struct list_s {
-    void *data;
-    size_t size;
-    struct list_s *next;
-} list_t;
-
-list_t *add_node(list_t *, list_t *);
-list_t *create_node(void *, size_t);
-list_t *rm_first_node(list_t *);
-list_t *rm_last_node(list_t *);
-list_t *get_element(list_t *, size_t);
-list_t *rm_index_node(list_t *, size_t);
 char find_flag(const char *, int);
 char *my_nconcat(char const *, char const *, size_t);
 char *my_replace_str(char *, char *, char *, int);
@@ -41,7 +31,6 @@ char **generate_char_matrix(size_t, size_t, char);
 char ***generate_string_matrix(size_t, size_t, char *);
 size_t count_words(const char *str);
 size_t my_strlen(char const *);
-size_t get_list_size(list_t *);
 int my_strnrevcmp(const char *, const char *, size_t);
 int my_strncmp(char const *, char const *, size_t);
 int my_strrevcmp(const char *, const char *);
@@ -74,7 +63,6 @@ void d_b(const char *, va_list);
 void my_putstr(char const *);
 void my_puterr(char const *);
 void my_putchar(const int);
-void delete_list(list_t **);
 void my_clean_str(char *);
 void my_put_nbr(int);
 
