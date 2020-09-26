@@ -7,41 +7,30 @@ map_t *map_init(void)
 {
   map_t *map = malloc(sizeof(map_t));
 
-  if (!map)
-    return NULL;
-
-  return memset(map, 0, sizeof(map_t));
+  return !map ? NULL : memset(map, 0, sizeof(map_t));
 }
 
 map_t *map_push(map_t *map,
 		const char *key,
 		void *value,
-		size_t value_size,
-		insert insertion_type)
+		size_t value_size)
 {
-  if (!map || !key || map_get(map, key))
+  CHECK_PTR(map, NULL);
+  CHECK_PTR(key, map);
+
+  if (map_get(map, key))
     return map;
 
   map_t *node = malloc(sizeof(map_t));
 
-  if (!node)
-    return map;
+  CHECK_PTR(node, map);
 
   node->key = strdup(key);
+  node->value = malloc(value_size);
 
-  if (insertion_type == DUPLICATE) {
-    node->value = malloc(sizeof(map_t));
-    if (!node->value)
-      return NULL;
+  CHECK_PTR(node->value, map);
 
-    // duplicating the data memory.
-    memcpy(node->value, value, value_size);
-    node->insertion_type = DUPLICATE;
-  } else {
-    node->value = value;
-    node->insertion_type = COPY;
-  }
-
+  memcpy(node->value, value, value_size);
   node->value_size = value_size;
   node->next = map;
   return node;
@@ -49,16 +38,15 @@ map_t *map_push(map_t *map,
 
 void destroy_node(map_t *map)
 {
-  if (map->insertion_type == DUPLICATE)
-    free(map->value);
+  free(map->value);
   free(map->key);
   free(map);
 }
 
 map_t *map_remove(map_t *map, const char *key)
 {
-  if (!map || !key)
-    return map;
+  CHECK_PTR(map, NULL);
+  CHECK_PTR(key, map);
 
   map_t *head = map;
   map_t *last_node = map;
@@ -81,8 +69,8 @@ map_t *map_remove(map_t *map, const char *key)
 
 void *map_get(map_t *map, const char *key)
 {
-  if (!map || !key)
-    return NULL;
+  CHECK_PTR(map, NULL);
+  CHECK_PTR(key, NULL);
 
   for (; map->key; map = map->next)
     if (!strcmp(key, map->key))
@@ -93,9 +81,7 @@ void *map_get(map_t *map, const char *key)
 
 size_t map_size(map_t *map)
 {
-  if (!map)
-    return 0;
-
+  CHECK_PTR(map, 0);
   size_t size = 0;
 
   for (; map->key; map = map->next, ++size);
@@ -109,12 +95,14 @@ void map_debug(map_t *map)
     return;
   }
 
-  if (!map_size(map)) {
+  size_t size = map_size(map);
+
+  if (!size) {
     printf("The map does not contain any item.\n");
     return;
   }
 
-  printf("%ld item(s).\n", map_size(map));
+  printf("%ld item(s).\n", size);
   for (; map->key; map = map->next)
     printf("  { key: '%s', value: '%p' }\n", map->key, map->value);
 }
@@ -124,12 +112,14 @@ void map_destroy(map_t *map)
   if (!map)
     return;
 
-  if (map && !map_size(map)) {
+  size_t size = map_size(map);
+
+  if (!size) {
     free(map);
     return;
   }
 
-  if (map_size(map) == 1) {
+  if (size == 1) {
     free(map->next);
     destroy_node(map);
     return;

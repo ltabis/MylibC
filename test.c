@@ -10,26 +10,20 @@
 
 /*   map_t *map = map_init(); */
 
-/*   // duplicate the data pointed to. */
 /*   map = map_push(map, */
 /* 		 "first", */
 /* 		 "duplicate me please", */
-/* 		 20, */
-/* 		 DUPLICATE); */
-
-/*   // only copy the pointer. */
+/* 		 20); */
 /*   map = map_push(map, */
 /* 		 "second", */
 /* 		 ptr, */
-/* 		 sizeof(int *), */
-/* 		 COPY); */
+/* 		 sizeof(int)); */
 
 /*   // does not get inserted. */
 /*   map = map_push(map, */
 /* 		 "second", */
 /* 		 ptr, */
-/* 		 sizeof(int *), */
-/* 		 COPY); */
+/* 		 sizeof(int)); */
 
 /*   map_debug(map); */
 /*   map = map_remove(map, "first"); */
