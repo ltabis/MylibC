@@ -39,26 +39,49 @@
 /*   return 0; */
 /* } */
 
-#include "list.h"
+/* #include "list.h" */
+
+/* int main(void) */
+/* { */
+/*   int a = 5; */
+/*   unsigned int b = 3; */
+/*   char *c = "I'm a string!"; */
+
+/*   list_t *list = linit(); */
+  
+/*   list = lpush(list, &a, sizeof(int)); */
+/*   list = lpush(list, &b, sizeof(unsigned int)); */
+/*   list = lpush(list, &c, sizeof(char *)); */
+
+/*   ldebug(list); */
+/*   list = lremove(list, 0); */
+/*   list = lremove(list, 9); */
+/*   ldebug(list); */
+
+/*   ldestroy(list); */
+/*   return 0; */
+/* } */
+
 #include <stdio.h>
+#include "my.h"
 
 int main(void)
 {
-  int a = 5;
-  unsigned int b = 3;
-  char *c = "I'm a string!";
+  char **board = malloc(sizeof(char *) * 3);
 
-  list_t *list = linit();
-  
-  list = lpush(list, &a, sizeof(int));
-  list = lpush(list, &b, sizeof(unsigned int));
-  list = lpush(list, &c, sizeof(char *));
+  board[0] = strdup("test1");
+  board[1] = strdup("test2");
+  board[2] = NULL;
 
-  ldebug(list);
-  list = lremove(list, 0);
-  list = lremove(list, 9);
-  ldebug(list);
+  void **copy = my_copy_board((void * const *)board, sizeof(char *));
 
-  ldestroy(list);
+  for (unsigned int i = 0; copy[i]; ++i) {
+    printf("original: %s, ptr: %p\n", board[i], &board[i]);
+    printf("copy: %s, ptr: %p\n", (char *)copy[i], &copy[i]);
+  }
+
+  clean_board_memory(copy);
+  clean_board_memory((void **)board);
+
   return 0;
 }

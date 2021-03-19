@@ -7,30 +7,32 @@
 
 #include "my.h"
 
-void clean_board_memory(char **cpy)
+void clean_board_memory(void **cpy)
 {
-    for (size_t i = 0; cpy[i]; ++i)
-        free(cpy[i]);
-    free(cpy);
+  for (size_t i = 0; cpy[i]; ++i)
+    free(cpy[i]);
+  free(cpy);
 }
 
-size_t get_board_len(const char **src)
+size_t get_board_len(void * const *src)
 {
-    size_t i = 0;
+  size_t i = 0;
 
-    for (; src[i]; ++i);
-    return (i);
+  for (; src[i]; ++i);
+  return (i);
 }
 
-char **my_copy_board(const char **src)
+void **my_copy_board(void * const *src, size_t data_size)
 {
-    char **cpy = malloc(sizeof(char *) * (get_board_len(src) + 1));
+  size_t board_len = get_board_len(src);
+  void **cpy = malloc(data_size * (board_len + 1));
 
-    if (!cpy)
-        return (NULL);
-    for (size_t i = 0; src[i]; ++i)
-        if (!(cpy[i] = my_strdup(src[i])))
-            return (NULL);
-    cpy[get_board_len(src)] = 0;
-    return (cpy);
+  if (!cpy)
+    return (NULL);
+
+  for (size_t i = 0; src[i]; ++i)
+    if (!(cpy[i] = strndup(src[i], data_size)))
+      return (NULL);
+  cpy[board_len] = 0;
+  return (cpy);
 }
